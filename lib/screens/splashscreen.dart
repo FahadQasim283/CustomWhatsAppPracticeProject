@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:application1/routes/routes.dart';
+import 'package:application1/routes/route_names.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       // Navigator.of(context).pushReplacementNamed(loginRoute);
-      Navigator.pushReplacementNamed(context, loginRoute);
+      Navigator.pushReplacementNamed(context, RouteNames.loginRoute);
     });
   }
 

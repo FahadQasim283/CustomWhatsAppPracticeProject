@@ -1,4 +1,4 @@
-import 'package:application1/routes/routes.dart';
+import 'package:application1/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import '../customWidgets/widgets.dart';
 
@@ -112,13 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      homePageRoute,
-                      arguments: 
-                      {
-                        "name": "fahad",
-                        "Age": "23",
-                        "city": "Attock",
-                      },
+                      RouteNames.homePageRoute,
                     );
                   },
                 ),
@@ -130,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      signupRoute,
+                      RouteNames.signupRoute,
                     );
                   },
                 ),

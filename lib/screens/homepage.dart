@@ -1,5 +1,5 @@
 import 'package:application1/customWidgets/widgets.dart';
-import 'package:application1/routes/routes.dart';
+import 'package:application1/routes/route_names.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,8 +8,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = ModalRoute.of(context)!.settings.arguments as Map;
-
     // double height = MediaQuery.sizeOf(context).width;
     double width = MediaQuery.sizeOf(context).width;
     return WillPopScope(
@@ -23,7 +21,7 @@ class HomePage extends StatelessWidget {
           appBar: AppBar(
             title: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, hiddenchatsRoute);
+                  Navigator.pushNamed(context, RouteNames.hiddenchatsRoute);
                 },
                 child: customText(
                     text: "WhatsApp", textColor: Colors.white, fontSize: 18)),
@@ -75,20 +73,11 @@ class HomePage extends StatelessWidget {
             ),
           ),
           drawer: customDrawer(),
-          body: TabBarView(children: [
-            const Text("Camera"),
-            ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (context, index) 
-              {
-                final list = data.values.toList();
-                return Center(
-                  child: Text(list[index].toString()),
-                );
-              },
-            ),
-            const Text("Groups"),
-            const Text("Calls"),
+          body: const TabBarView(children: [
+            Text("Camera"),
+            Text("chats"),
+            Text("Groups"),
+            Text("Calls"),
           ]),
         ),
       ),

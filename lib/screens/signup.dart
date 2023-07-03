@@ -1,6 +1,7 @@
 import 'package:application1/customWidgets/widgets.dart';
-import 'package:application1/routes/routes.dart';
 import 'package:flutter/material.dart';
+
+import '../routes/route_names.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -90,7 +91,7 @@ class _SignUpState extends State<SignUp> {
                 child: const Text("Login"),
                 onPressed: () => Navigator.pushNamed(
                   context,
-                  loginRoute,
+                  RouteNames.loginRoute,
                 ),
               ),
             ],
