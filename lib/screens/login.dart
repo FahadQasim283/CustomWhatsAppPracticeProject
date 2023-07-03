@@ -1,0 +1,144 @@
+import 'package:application1/routes/routes.dart';
+import 'package:flutter/material.dart';
+import '../customWidgets/widgets.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final userNameControler = TextEditingController();
+  final passwordControler = TextEditingController();
+  bool _hideText = true;
+  int _tapped = 0;
+  Widget _icon = const Icon(Icons.visibility_off_sharp);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: const Color.fromARGB(255, 254, 255, 172),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ClipRect(
+                  child: Image.asset(
+                    "images/logo.png",
+                    height: 70,
+                    width: 70,
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    customText(
+                        text: "Maintenance",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24),
+                    customText(
+                        text: "Box",
+                        fontWeight: FontWeight.w600,
+                        textColor: const Color(0xfff97033),
+                        fontSize: 24),
+                  ],
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 60,
+            ),
+            Center(child: customText(text: "Login", fontSize: 24)),
+            const SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: customText(
+                  text: "When the exception was thrown,\nthis was the stack"),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: customTextFormField(
+                controler: userNameControler,
+                label: "User Name or Email",
+                prefixIcon: const Icon(Icons.mail_lock_rounded),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: customTextFormField(
+                controler: passwordControler,
+                label: "Password",
+                hideText: _hideText,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    _tapped += 1;
+                    setState(() {
+                      if (_tapped % 2 == 0) {
+                        _hideText = true;
+                        _icon = const Icon(Icons.visibility_off);
+                      } else {
+                        _hideText = false;
+                        _icon = const Icon(Icons.visibility_rounded);
+                      }
+                    });
+                  },
+                  icon: _icon,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const SizedBox(height: 40),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                customButton(
+                  child: const Text("Login"),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      homePageRoute,
+                      arguments: 
+                      {
+                        "name": "fahad",
+                        "Age": "23",
+                        "city": "Attock",
+                      },
+                    );
+                  },
+                ),
+                const SizedBox(
+                  width: 30,
+                ),
+                customButton(
+                  child: const Text("Sign Up"),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      signupRoute,
+                    );
+                  },
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
