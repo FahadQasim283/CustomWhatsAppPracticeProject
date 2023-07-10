@@ -4,20 +4,17 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   final String name = "Fahad";
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // double height = MediaQuery.sizeOf(context).width;
-    double width = MediaQuery.sizeOf(context).width;
+    double width = MediaQuery.of(context).size.width;
     return WillPopScope(
-      onWillPop: () async {
-        return false;
-      },
+      onWillPop: () async => false,
       child: DefaultTabController(
         length: 4,
         child: Scaffold(
-          backgroundColor: const Color.fromARGB(168, 101, 166, 122),
+          backgroundColor: const Color.fromARGB(116, 132, 117, 75),
           appBar: AppBar(
             title: TextButton(
                 onPressed: () {
@@ -38,6 +35,13 @@ class HomePage extends StatelessWidget {
                       child: Text("Settings"),
                     ),
                     PopupMenuItem(
+                      child: const Text("Restart"),
+                      onTap: () {
+                        // Navigator.popUntil(context,
+                        //     ModalRoute.withName(RouteNames.loginRoute));
+                      },
+                    ),
+                    PopupMenuItem(
                       child: const Text("Logout"),
                       onTap: () {
                         Navigator.pop(context);
@@ -50,7 +54,7 @@ class HomePage extends StatelessWidget {
                 width: 10,
               ),
             ],
-            backgroundColor: Colors.teal,
+            backgroundColor: const Color.fromARGB(187, 224, 209, 0),
             bottom: TabBar(
               unselectedLabelColor: Colors.black54,
               padding: EdgeInsets.symmetric(horizontal: width / 15),

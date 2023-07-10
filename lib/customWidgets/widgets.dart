@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget customDrawer() {
   return Drawer(
-    backgroundColor: Colors.teal,
+    backgroundColor: Colors.white,
     elevation: 10,
     shadowColor: Colors.amber,
     child: ListView(children: [
@@ -11,15 +11,11 @@ Widget customDrawer() {
         margin: EdgeInsets.zero,
         child: UserAccountsDrawerHeader(
           decoration: const BoxDecoration(
-            boxShadow:  [
-              BoxShadow(color: Color.fromARGB(227, 255, 7, 131)),
-              BoxShadow(color: Color.fromARGB(172, 255, 193, 7)),
-              BoxShadow(color: Color.fromARGB(62, 7, 255, 69)),
-
-            ],
+            color: Colors.deepPurple,
           ),
-          accountName: customText(text: "Fahad Qasim"),
-          accountEmail: customText(text: "FahadQasim3310@gmail.com"),
+          accountName: customText(text: "Fahad Qasim", textColor: Colors.white),
+          accountEmail: customText(
+              text: "FahadQasim3310@gmail.com", textColor: Colors.white),
           currentAccountPicture: const CircleAvatar(
               foregroundImage: AssetImage('images/logo.png')),
         ),
@@ -54,6 +50,8 @@ Widget customTextFormField({
       label: Text(label),
       fillColor: const Color.fromARGB(221, 235, 235, 235),
       filled: true,
+      floatingLabelBehavior: FloatingLabelBehavior.never,
+      alignLabelWithHint: true,
       border: const OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(10),

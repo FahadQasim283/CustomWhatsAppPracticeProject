@@ -1,4 +1,5 @@
-class RouteNames {
+class RouteNames 
+{
   static const String loginRoute = "login";
   static const String signupRoute = "signup";
   static const String homePageRoute = "homePage";

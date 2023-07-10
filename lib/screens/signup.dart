@@ -22,18 +22,35 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 254, 255, 172),
+      appBar: AppBar(
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: ClipRRect(
+            borderRadius:
+                const BorderRadius.vertical(bottom: Radius.circular(82)),
+            child: Image.asset(
+              "images/signup.png",
+            ),
+          ),
+        ),
+        bottomOpacity: 0,
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        toolbarHeight: MediaQuery.sizeOf(context).height / 4,
+        shape: const OutlineInputBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(82),
+            ),
+            borderSide: BorderSide.none),
+      ),
+      backgroundColor: const Color.fromARGB(84, 250, 247, 73),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 50),
-              ClipOval(
-                child: Image.asset(
-                  "images/signup.png",
-                ),
-              ),
               const SizedBox(height: 50),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -66,7 +83,6 @@ class _SignUpState extends State<SignUp> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: customTextFormField(
                   controler: passwordControler,
-                  hintText: "Password",
                   label: "Password",
                   hideText: hideText,
                   suffixIcon: IconButton(

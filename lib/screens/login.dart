@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color.fromARGB(255, 254, 255, 172),
+      backgroundColor: const Color.fromARGB(84, 250, 247, 73),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -104,32 +104,37 @@ class _LoginPageState extends State<LoginPage> {
               height: 20,
             ),
             const SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                customButton(
-                  child: const Text("Login"),
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteNames.homePageRoute,
-                    );
-                  },
-                ),
-                const SizedBox(
-                  width: 30,
-                ),
-                customButton(
-                  child: const Text("Sign Up"),
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteNames.signupRoute,
-                    );
-                  },
-                ),
-              ],
-            )
+            customButton(
+              child: const Text("Login"),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  RouteNames.homePageRoute,
+                );
+              },
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Text.rich(
+              TextSpan(
+                text: "Don't have an account? ",
+                children: [
+                  WidgetSpan(
+                      child: InkWell(
+                        // enableFeedback: true,
+                        // splashColor: Colors.deepPurple,
+                        // hoverColor: const Color.fromARGB(255, 0, 124, 4),
+                        highlightColor: const Color.fromARGB(255, 166, 196, 255),
+                        
+                    onTap: () =>
+                        Navigator.pushNamed(context, RouteNames.signupRoute),
+                    child: customText(text: "SignUp",textColor: Colors.deepOrange,fontSize: 18,fontWeight: FontWeight.w600),
+                  ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
